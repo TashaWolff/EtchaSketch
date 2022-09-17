@@ -4,10 +4,34 @@ body {
     align-items: center;
 }
 
+button {
+    border-radius: 9px;
+}
+
 #mainBox {
     border: 6px solid black;
     height: 720px;
     width: 720px;
+}
+
+#gridBox {
+    width: 500px;
+    height: 500px;
+    border: solid red;
+}
+
+.topContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    border: solid black;
+}
+
+#sketchButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
 #titleBox {
@@ -16,6 +40,17 @@ body {
     align-items: center;
     height: 100px;
     width: 720px;
+}
+
+.sizeContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 220px;
+    margin-top: 15px;
+}
+
+.sizeContainer button {
+    width: fit-content;
 }
 
 h1 {
