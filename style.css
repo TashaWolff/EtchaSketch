@@ -1,0 +1,28 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#mainBox {
+    border: 6px solid black;
+    height: 720px;
+    width: 720px;
+}
+
+#titleBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100px;
+    width: 720px;
+}
+
+h1 {
+    font-size: 42px;
+}
+
+h1,
+h3 {
+    margin: 3px;
+}
