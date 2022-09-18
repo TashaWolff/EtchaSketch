@@ -42,8 +42,16 @@ button {
 
 .sizeContainer {
     display: flex;
+    align-items: center;
     justify-content: flex-end;
     margin-right: 200px;
+}
+
+.sizeContainer button {
+    font-size: 14px;
+    margin-left: 20px;
+    padding: 6px;
+    height: fit-content;
 }
 
 #titleBox {
