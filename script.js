@@ -2,7 +2,7 @@ const gridBox = document.querySelector('#gridBox');
 let squares = 16;
 let grid = squares * squares;
 let size = 600 / squares;
-let sizeNoLines = (600 / squares) - 1;
+let sizeLines = (600 / squares) - 1;
 
 console.log(size);
 
