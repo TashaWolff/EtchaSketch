@@ -4,6 +4,7 @@ let grid = squares * squares;
 let size = 600 / squares;
 let sizeLines = (600 / squares) - 2;
 let lines = true;
+let background = "white";
 
 console.log(size);
 
@@ -23,3 +24,14 @@ for (i=0; i < grid; i++) {
 }}
 
 makeGrid(grid);
+
+//slider bar
+const slider = document.getElementById("gridRange");
+const output = document.getElementById("value");
+
+output.textContent = `${slider.value}`;
+
+slider.oninput = function () {
+    let sliderValue = this.value;
+    output.textContent = `${sliderValue}`;
+}
