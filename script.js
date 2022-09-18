@@ -1,8 +1,15 @@
 const gridBox = document.querySelector('#gridBox');
-let choice = 16 * 16;
+let squares = 16;
+let grid = squares * squares;
+let size = 600 / squares;
+let sizeNoLines = (600 / squares) - 1;
 
-for (i=0; i < choice; i++) {
-    const divTest = document.createElement('div');
-    divTest.setAttribute('style', 'border: 1px solid black; width: 20px; height: 20px;')
-    gridBox.appendChild(divTest);
+console.log(size);
+
+for (i=0; i < grid; i++) {
+    const divSqr = document.createElement('div');
+    divSqr.setAttribute('style', `background: blue;`);
+    divSqr.style.height = `${size}px`;
+    divSqr.style.width = `${size}px`;
+    gridBox.appendChild(divSqr);
 }
