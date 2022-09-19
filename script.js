@@ -13,7 +13,7 @@ let size = 600 / squares;
 let sizeLines = (600 / squares) - 2;
 for (i=0; i < grid; i++) {
     const divSqr = document.createElement('div');
-    divSqr.setAttribute('style', `background: blue;`);
+    divSqr.setAttribute('style', `background: ;`);
     divSqr.setAttribute('id', `boxDiv`);
     if (lines) {
         divSqr.style.height = `${sizeLines}px`;
@@ -25,23 +25,20 @@ for (i=0; i < grid; i++) {
     }
     gridBox.appendChild(divSqr);
 }
-// const boxes = document.querySelectorAll("#boxDiv");
 }
-// console.log(boxes);
-
 
 //slider bar
 
 output.textContent = `${slider.value}`;
 
 slider.oninput = function () {
-    removeGrid();
     let sliderValue = this.value;
+    removeGrid();
+    if (this.value == 3) {//*** make switch statement */
+        makeGrid(16);
+    }
     output.textContent = `${sliderValue}`;
-    makeGrid(sliderValue);
 }
-
-// console.log(sliderValue);
 
 function removeGrid() {
     while (gridBox.firstChild) {
