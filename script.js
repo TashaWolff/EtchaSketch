@@ -1,17 +1,18 @@
 const gridBox = document.querySelector('#gridBox');
-let squares = 18;
-let grid = squares * squares;
+const slider = document.getElementById("gridRange");
+const output = document.getElementById("value");
+
+let squares = 16;
 let size = 600 / squares;
 let sizeLines = (600 / squares) - 2;
 let lines = true;
-let background = "white";
 
-console.log(size);
-
-function makeGrid(grid) {
+function makeGrid(squares) {
+let grid = squares * squares;
 for (i=0; i < grid; i++) {
     const divSqr = document.createElement('div');
     divSqr.setAttribute('style', `background: blue;`);
+    divSqr.setAttribute('id', `boxDiv`);
     if (lines) {
         divSqr.style.height = `${sizeLines}px`;
         divSqr.style.width = `${sizeLines}px`;
@@ -21,17 +22,27 @@ for (i=0; i < grid; i++) {
         divSqr.style.width = `${size}px`;
     }
     gridBox.appendChild(divSqr);
-}}
+}
+// const boxes = document.querySelectorAll("#boxDiv");
+}
+// console.log(boxes);
 
-makeGrid(grid);
 
 //slider bar
-const slider = document.getElementById("gridRange");
-const output = document.getElementById("value");
 
 output.textContent = `${slider.value}`;
 
 slider.oninput = function () {
+    removeGrid();
     let sliderValue = this.value;
     output.textContent = `${sliderValue}`;
+    makeGrid(sliderValue);
 }
+
+function removeGrid() {
+    while (gridBox.firstChild) {
+      gridBox.removeChild(gridBox.firstChild);
+    }
+  }
+
+makeGrid(squares);
