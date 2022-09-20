@@ -24,6 +24,9 @@ for (i=0; i < grid; i++) {
         divSqr.style.width = `${size}px`;
     }
     gridBox.appendChild(divSqr);
+    divSqr.addEventListener('click', () => {
+        alert('Hello!');
+    });
 }
 }
 
