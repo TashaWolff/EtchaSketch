@@ -2,19 +2,17 @@ const gridBox = document.querySelector('#gridBox');
 const slider = document.getElementById("gridRange");
 const output = document.getElementById("value");
 
-// let sliderValue = slider.value;
-// let squares = sliderValue;
-
 let lines = true;
 
 function makeGrid(squares) {
 let grid = squares * squares;
 let size = 600 / squares;
 let sizeLines = (600 / squares) - 2;
+//can make function for for loop - genSquares(); 
 for (i=0; i < grid; i++) {
     const divSqr = document.createElement('div');
-    divSqr.setAttribute('style', `background: ;`);
-    divSqr.setAttribute('id', `boxDiv`);
+    divSqr.id = 'warning';
+    divSqr.className = 'warning';
     if (lines) {
         divSqr.style.height = `${sizeLines}px`;
         divSqr.style.width = `${sizeLines}px`;
@@ -24,11 +22,18 @@ for (i=0; i < grid; i++) {
         divSqr.style.width = `${size}px`;
     }
     gridBox.appendChild(divSqr);
-    divSqr.addEventListener('click', () => {
-        alert('Hello!');
-    });
+    // divSqr.addEventListener('click', () => {
+    //     alert('Hello!');
+    // });
 }
 }
+
+const btnClassic = document.querySelector('#classic');
+
+btnClassic.addEventListener('click', () => {
+    alert('Hello..');
+});
+
 
 //slider bar
 
@@ -50,3 +55,13 @@ function removeGrid() {
   }
 
 makeGrid(16);
+
+warningDiv = document.getElementById('warning');
+
+if (document.getElementById('warning')) {
+    alert('warning div on Dom');
+}
+
+document.addEventListener('click', () => {
+    alert('hello');
+});
