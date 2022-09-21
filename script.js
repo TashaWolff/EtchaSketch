@@ -58,10 +58,10 @@ makeGrid(16);
 
 warningDiv = document.getElementById('warning');
 
-if (document.getElementById('warning')) {
-    alert('warning div on Dom');
-}
+// if (document.getElementById('warning')) {
+//     alert('warning div on Dom');
+// }
 
-document.addEventListener('click', () => {
-    alert('hello');
+warningDiv.addEventListener('mouseover', () => {
+    warningDiv.style.background = 'black';
 });
