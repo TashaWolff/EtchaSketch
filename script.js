@@ -11,8 +11,8 @@ let sizeLines = (600 / squares) - 2;
 //can make function for for loop - genSquares(); 
 for (i=0; i < grid; i++) {
     const divSqr = document.createElement('div');
-    divSqr.id = 'warning';
-    divSqr.className = 'warning';
+    divSqr.id = 'sqr';
+    divSqr.className = 'sqr';
     if (lines) {
         divSqr.style.height = `${sizeLines}px`;
         divSqr.style.width = `${sizeLines}px`;
@@ -56,12 +56,20 @@ function removeGrid() {
 
 makeGrid(16);
 
-warningDiv = document.getElementById('warning');
+// warningDiv = document.getElementById('warning');
 
 // if (document.getElementById('warning')) {
 //     alert('warning div on Dom');
 // }
 
-warningDiv.addEventListener('mouseover', () => {
-    warningDiv.style.background = 'black';
+// warningDiv.addEventListener('mouseover', () => {
+//     warningDiv.style.background = 'black';
+// });
+
+const sqrs = document.querySelectorAll('#sqr');
+
+sqrs.forEach((sqr) => {
+    sqr.addEventListener('mouseover', () => {
+        sqr.style.background = 'black';
+    });
 });
