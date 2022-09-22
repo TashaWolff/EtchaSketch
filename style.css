@@ -5,8 +5,8 @@ body {
     background-color: #e7dbcb;
 }
 
-.test {
-    background-color: pink;
+.lines {
+    border: 1px solid black;
 }
 
 button {

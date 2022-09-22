@@ -1,6 +1,7 @@
 const gridBox = document.querySelector('#gridBox');
 const slider = document.getElementById("gridRange");
 const output = document.getElementById("value");
+const chosenColor = 'black';
 
 let lines = true;
 
@@ -8,7 +9,6 @@ function makeGrid(squares) {
 let grid = squares * squares;
 let size = 600 / squares;
 let sizeLines = (600 / squares) - 2;
-//can make function for the for loop - genSquares(); 
 for (i=0; i < grid; i++) {
     const divSqr = document.createElement('div');
     divSqr.id = 'sqr';
@@ -22,19 +22,36 @@ for (i=0; i < grid; i++) {
         divSqr.style.width = `${size}px`;
     }
     gridBox.appendChild(divSqr);
+
+    const sqrs = document.querySelectorAll('#sqr');
+
+    sqrs.forEach((sqr) => {
+    sqr.addEventListener('mouseover', () => {
+        sqr.style.background = `${chosenColor}`;
+        sqr.style.border = `1px solid ${chosenColor}`;
+    });
+});
 }
 }
 
-makeGrid(16); //lines class);
+makeGrid(24); //performance issues past 32 - even then takes longgggg time to load
 
 //slider bar
+//put grid line toggle button here?
+//'in order to toggle lines you must adjust size'
 output.textContent = `${slider.value}`;
 
 slider.oninput = function () {
     let sliderValue = this.value;
     removeGrid();
-    if (this.value == 3) {
+    if (this.value == 1) {
+        makeGrid(4);
+    } else if (this.value == 2) {
+        makeGrid(8);
+    } else if (this.value == 3) {
         makeGrid(16);
+    } else if (this.value == 4) {
+        makeGrid(24);
     }
     output.textContent = `${sliderValue}`;
 }
@@ -45,17 +62,7 @@ function removeGrid() {
     }
   }
 
-const chosenColor = 'black';
 
-const sqrs = document.querySelectorAll('#sqr');
-
-sqrs.forEach((sqr) => {
-    sqr.addEventListener('mouseover', () => {
-        sqr.style.background = `${chosenColor}`;
-        //might remove after line checkbox
-        sqr.style.border = `1px solid ${chosenColor}`;
-    });
-});
 
 
 //buttons
@@ -79,17 +86,3 @@ bntLines.addEventListener('click', () => {
         sqr.style.border = `1px solid #e7dbcb`;
         });
 });
-
-
-
-
-
-// warningDiv = document.getElementById('warning');
-
-// if (document.getElementById('warning')) {
-//     alert('warning div on Dom');
-// }
-
-// warningDiv.addEventListener('mouseover', () => {
-//     warningDiv.style.background = 'black';
-// });
