@@ -1,7 +1,8 @@
 const gridBox = document.querySelector('#gridBox');
 const slider = document.getElementById("gridRange");
 const output = document.getElementById("value");
-const cb = document.querySelector('#lineBtn');
+
+let lines = true;
 
 function makeGrid(squares) {
 let grid = squares * squares;
@@ -10,14 +11,13 @@ let sizeLines = (600 / squares) - 2;
 //can make function for the for loop - genSquares(); 
 for (i=0; i < grid; i++) {
     const divSqr = document.createElement('div');
-    const cb = document.querySelector('#lineBtn');
     divSqr.id = 'sqr';
     divSqr.className = 'sqr';
-    if (!cb.checked) {
+    if (lines) {
         divSqr.style.height = `${sizeLines}px`;
         divSqr.style.width = `${sizeLines}px`;
         divSqr.style.border = "1px solid black";
-    } else if (cb.checked){
+    } else if (!lines){
         divSqr.style.height = `${size}px`;
         divSqr.style.width = `${size}px`;
     }
@@ -25,7 +25,7 @@ for (i=0; i < grid; i++) {
 }
 }
 
-makeGrid(16);
+makeGrid(16); //lines class);
 
 //slider bar
 output.textContent = `${slider.value}`;
@@ -33,7 +33,7 @@ output.textContent = `${slider.value}`;
 slider.oninput = function () {
     let sliderValue = this.value;
     removeGrid();
-    if (this.value == 3) {//*** make switch statement */
+    if (this.value == 3) {
         makeGrid(16);
     }
     output.textContent = `${sliderValue}`;
@@ -53,10 +53,12 @@ sqrs.forEach((sqr) => {
     sqr.addEventListener('mouseover', () => {
         sqr.style.background = `${chosenColor}`;
         //might remove after line checkbox
-        // sqr.style.border = `1px solid ${chosenColor}`;
+        sqr.style.border = `1px solid ${chosenColor}`;
     });
 });
 
+
+//buttons
 
 //classic button
 const btnClassic = document.querySelector('#classic');
@@ -65,20 +67,21 @@ btnClassic.addEventListener('click', () => {
     alert('Hello..');
 });
 
-
-
-
 //line button
 //must be made so if clicked again, the sqaures go back
+const bntLines = document.querySelector('#lineBtn');
 
-// const bntLines = document.querySelector('#lineBtn');
+bntLines.addEventListener('click', () => {
+    // removeGrid();
+    sqrs.forEach((sqr) => {
+        //instead make it add class that changes border color
+        // makeGrid(output.textContent, class name noLines)
+        sqr.style.border = `1px solid #e7dbcb`;
+        });
+});
 
-// bntLines.addEventListener('click', () => {
-//     //resetGrid()
-//     sqrs.forEach((sqr) => {
-//         sqr.style.border = `1px solid #e7dbcb`;
-//         });
-// });
+
+
 
 
 // warningDiv = document.getElementById('warning');
